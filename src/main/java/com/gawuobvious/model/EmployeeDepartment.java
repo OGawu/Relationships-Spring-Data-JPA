@@ -1,11 +1,10 @@
 package com.gawuobvious.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Getter
@@ -17,4 +16,8 @@ public class EmployeeDepartment {
     @GeneratedValue
     private String departmentId;
     private String departmentName;
+
+
+    @OneToMany(mappedBy = "employeeDepartment")
+    private List<Employee> employees;
 }
